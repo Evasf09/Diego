@@ -1,18 +1,19 @@
-/* -------------------- General -------------------- */
+/* Base Styles */
 body {
     background-color: rgb(191, 201, 229);
-    letter-spacing: 3px;
+    letter-spacing: 0.3vw;
     margin: 0;
     padding: 0;
+    font-family: "Cherry Bomb One", system-ui;
 }
 
-/* Boxes */
+/* Box Common */
 .box {
     background-color: rgb(143, 156, 195);
     color: rgb(66, 79, 119);
-    border: 10px solid rgb(66, 79, 119);
-    border-radius: 50px;
-    margin: 5vh auto;
+    border: 2vw solid rgb(66, 79, 119);
+    border-radius: 5vw;
+    margin: 2vh auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,72 +21,82 @@ body {
     z-index: 1;
 }
 
-/* Header box */
-.box-header {
-    width: 50%;
-    height: 150px;
+/* Header Box */
+.header-box {
+    width: 80%;
+    height: 18vh;
 }
 
-/* Main box */
-.box-main {
-    width: 50%;
+.header-box h1 {
+    font-size: 5vw;
+    margin: 0;
+}
+
+/* Main Box */
+.main-box {
+    width: 90%;
+    height: 60vh;
     display: flex;
     justify-content: space-between;
-    padding: 60px;
+    padding: 5%;
     box-sizing: border-box;
-    height: 600px;
 }
 
-/* Image */
-.left-img img {
-    width: 400px;
-    height: 500px;
-    border: 10px solid rgb(66, 79, 119);
-    border-radius: 50px;
+/* Left Image */
+.left-image img {
+    width: 40%;
+    height: auto;
+    border: 2vw solid rgb(66, 79, 119);
+    border-radius: 5vw;
 }
 
-/* Keypad */
+/* Keypad Wrapper */
 .keypad-wrapper {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    padding-bottom: 115px;
-    padding-right: 10px;
+    width: 50%;
+    padding-bottom: 10%;
+    padding-right: 2%;
 }
 
+/* Button Grid */
 .button-grid {
     display: grid;
-    grid-template-columns: repeat(3, auto);
-    gap: 7%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3%;
+    width: 100%;
 }
 
+/* Display Cell */
 .display-cell {
     grid-column: 1 / span 3;
-    height: 50px;
+    height: 15%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgb(66, 79, 119);
     color: rgb(143, 156, 195);
-    border: 10px solid rgb(143, 156, 195);
-    border-radius: 50px;
-    font-size: 24px;
+    border: 2vw solid rgb(143, 156, 195);
+    border-radius: 5vw;
+    font-size: 1.5vw;
+    margin-bottom: 2%;
 }
 
+/* Buttons */
 .button-grid button {
-    width: 80px;
-    height: 80px;
+    width: 28%;
+    padding-top: 28%;
+    border-radius: 5vw;
+    background-color: rgb(143, 156, 195);
+    color: rgb(66, 79, 119);
+    border: 2vw solid rgb(66, 79, 119);
+    cursor: pointer;
+    font-size: 2vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(143, 156, 195);
-    color: rgb(66, 79, 119);
-    border: 10px solid rgb(66, 79, 119);
-    border-radius: 50px;
-    cursor: pointer;
     transition: 0.2s;
-    font-size: 30px;
-    font-family: "Cherry Bomb One", system-ui;
 }
 
 .button-grid button:hover {
@@ -93,7 +104,7 @@ body {
     color: rgb(143, 156, 195);
 }
 
-/* Hearts background */
+/* Hearts Background */
 .hearts-container {
     position: fixed;
     top: 0;
@@ -115,45 +126,29 @@ body {
     100% { transform: translateY(-120vh); opacity: 0; }
 }
 
-/* -------------------- Responsive for phones -------------------- */
+/* Responsive Scaling for Phones */
 @media (max-width: 600px) {
-    .box-header, .box-main {
-        width: 90%;
+
+    .header-box { height: 25vh; }
+    .header-box h1 { font-size: 8vw; }
+
+    .main-box {
         flex-direction: column;
-        padding: 20px;
+        align-items: center;
+        height: auto;
+        padding: 5%;
     }
 
-    h1 { font-size: 40px; }
-
-    .box-main {
-        flex-direction: column !important;
-        align-items: center !important;
-        height: auto !important;
-        padding: 20px !important;
-    }
-
-    .left-img img {
-        width: 70% !important;
-        height: auto !important;
-        margin-bottom: 20px !important;
-    }
-
+    .left-image img { width: 70%; margin-bottom: 5vh; }
     .keypad-wrapper {
-        padding-bottom: 50px !important;
-        padding-right: 0 !important;
-        align-items: center !important;
+        width: 90%;
+        align-items: center;
+        padding-bottom: 5vh;
+        padding-right: 0;
     }
 
-    .button-grid button {
-        width: 18vw !important;
-        height: 18vw !important;
-        font-size: 6vw !important;
-    }
-
-    .display-cell {
-        height: 8vw !important;
-        font-size: 5vw !important;
-    }
+    .display-cell { height: 10vw; font-size: 5vw; }
+    .button-grid button { width: 25%; padding-top: 25%; font-size: 6vw; }
 }
 
 
