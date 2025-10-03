@@ -91,7 +91,6 @@ img {
 }
 
 /* Hearts */
-
 .hearts-container {
     position: fixed;
     top: 0;
@@ -125,9 +124,28 @@ img {
     z-index: 1;
 }
 
+/* -------------------- Header/Main Box Overrides -------------------- */
+.box-header {
+    height: 150px;
+}
+
+.box-main {
+    height: 600px;
+    display: flex;
+    justify-content: space-between;
+    padding: 60px;
+    box-sizing: border-box;
+}
+
+/* Image class */
+.left-img {
+    height: 500px;
+    width: 400px;
+}
+
 /* -------------------- Responsive for phones -------------------- */
 @media (max-width: 600px) {
-    /* Main boxes wider and scale down */
+    /* General box adjustments */
     .box {
         width: 90%;
         margin-left: 50%;
@@ -136,21 +154,20 @@ img {
         padding: 10px;
     }
 
-    /* Headings smaller */
     h1 {
         font-size: 40px;
     }
 
-    /* Stack image and keypad vertically */
-    .box[style*="justify-content: space-between"] {
+    /* Main box stack */
+    .box-main {
         flex-direction: column !important;
         align-items: center !important;
         padding: 20px !important;
         height: auto !important;
     }
 
-    /* Left image scales */
-    .left-image img {
+    /* Image scales */
+    .left-img {
         width: 70% !important;
         height: auto !important;
         margin-bottom: 20px !important;
@@ -163,7 +180,7 @@ img {
         align-items: center !important;
     }
 
-    /* Buttons scale */
+    /* Button scales */
     .button-grid button {
         width: 18vw !important;
         height: 18vw !important;
