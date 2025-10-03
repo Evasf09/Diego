@@ -1,4 +1,4 @@
-﻿body {
+body {
     background-color: rgb(191, 201, 229); /* Light blue */
     letter-spacing: 3px;
 }
@@ -30,7 +30,6 @@
     justify-content: center; /* centers horizontally */
     align-items: center;
 }
-
 
 h1 {
     font-size: 80px;
@@ -81,22 +80,17 @@ h1 {
     font-family: "Cherry Bomb One", system-ui;
 }
 
-    .button-grid button:hover {
-        background-color: rgb(66, 79, 119);
-        color: rgb(143, 156, 195);
-    }
+.button-grid button:hover {
+    background-color: rgb(66, 79, 119);
+    color: rgb(143, 156, 195);
+}
 
 img {
     border: 10px solid rgb(66, 79, 119);
     border-radius: 50px;
 }
 
-
-
-
-
 /* Hearts */
-
 
 .hearts-container {
     position: fixed;
@@ -119,25 +113,21 @@ img {
         transform: translateY(0);
         opacity: 1;
     }
-
     100% {
         transform: translateY(-120vh);
         opacity: 0;
     }
 }
 
-
 /* Ensure boxes are above hearts */
 .box, .innerbox {
     position: relative;
     z-index: 1;
 }
-}
 
-/* Responsive for small screens (phones) */
+/* -------------------- Responsive for phones -------------------- */
 @media (max-width: 600px) {
-
-    /* Make main boxes wider and scale down height */
+    /* Main boxes wider and scale down */
     .box {
         width: 90%;
         margin-left: 50%;
@@ -146,52 +136,47 @@ img {
         padding: 10px;
     }
 
-    /* Adjust inner box */
-    .innerbox {
-        width: 90%;
-        margin-left: 50%;
-        transform: translateX(-50%);
-    }
-
-    /* Scale down headings */
+    /* Headings smaller */
     h1 {
         font-size: 40px;
     }
 
-    /* Flex container for image and keypad */
+    /* Stack image and keypad vertically */
     .box[style*="justify-content: space-between"] {
-        flex-direction: column; /* stack image and keypad */
-        align-items: center;
-        padding: 20px;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 20px !important;
+        height: auto !important;
     }
 
     /* Left image scales */
     .left-image img {
-        width: 70%;
-        height: auto;
-        margin-bottom: 20px;
+        width: 70% !important;
+        height: auto !important;
+        margin-bottom: 20px !important;
     }
 
-    /* Keypad wrapper adjustments */
+    /* Keypad wrapper */
     .keypad-wrapper {
-        padding-bottom: 50px; /* keep grid above bottom */
-        padding-right: 0;
-        align-items: center;
+        padding-bottom: 50px !important;
+        padding-right: 0 !important;
+        align-items: center !important;
     }
 
-    /* Button grid scales down */
+    /* Buttons scale */
     .button-grid button {
-        width: 18vw;
-        height: 18vw;
-        font-size: 6vw;
+        width: 18vw !important;
+        height: 18vw !important;
+        font-size: 6vw !important;
     }
 
-    /* Display box scales down */
+    /* Display box scales */
     .display-cell {
-        height: 8vw;
-        font-size: 5vw;
+        height: 8vw !important;
+        font-size: 5vw !important;
     }
 }
+
 
 
 
