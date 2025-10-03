@@ -134,5 +134,64 @@ img {
 }
 }
 
+/* Responsive for small screens (phones) */
+@media (max-width: 600px) {
+
+    /* Make main boxes wider and scale down height */
+    .box {
+        width: 90%;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    /* Adjust inner box */
+    .innerbox {
+        width: 90%;
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* Scale down headings */
+    h1 {
+        font-size: 40px;
+    }
+
+    /* Flex container for image and keypad */
+    .box[style*="justify-content: space-between"] {
+        flex-direction: column; /* stack image and keypad */
+        align-items: center;
+        padding: 20px;
+    }
+
+    /* Left image scales */
+    .left-image img {
+        width: 70%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    /* Keypad wrapper adjustments */
+    .keypad-wrapper {
+        padding-bottom: 50px; /* keep grid above bottom */
+        padding-right: 0;
+        align-items: center;
+    }
+
+    /* Button grid scales down */
+    .button-grid button {
+        width: 18vw;
+        height: 18vw;
+        font-size: 6vw;
+    }
+
+    /* Display box scales down */
+    .display-cell {
+        height: 8vw;
+        font-size: 5vw;
+    }
+}
+
 
 
