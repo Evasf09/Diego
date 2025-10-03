@@ -1,39 +1,30 @@
 <!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-
     <meta charset="utf-8" />
-    <title> Diego ♥ </title>
+    <title>Diego ♥</title>
 
-    <link href="Style Sheet.css" rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap" rel="stylesheet">
-
-</head>
-
-<meta charset="utf-8" />
-    <title> Diego ♥ </title>
     <link href="Style Sheet.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <div class="hearts-container"></div> <!-- hearts container only -->
+    <!-- Hearts container -->
+    <div class="hearts-container"></div>
 
     <!-- Header box -->
-    <div class="box box-header">
+    <div class="box" style="height: 150px;">
         <h1>Passcode</h1>
     </div>
 
     <!-- Main box with image and keypad -->
-    <div class="box box-main">
+    <div class="box" style="height: 600px; display: flex; justify-content: space-between; padding:60px; box-sizing: border-box;">
+        
         <!-- Left image -->
-        <div class="left-image">
-            <img src="Flower.png" alt="Left pic" class="left-img">
+        <div class="left-image" style="display: flex; align-items: center; height: 100%;">
+            <img src="Flower.png" alt="Left pic" style="height: 500px; width: 400px;">
         </div>
 
         <!-- Right keypad -->
@@ -55,6 +46,49 @@
             </div>
         </div>
     </div>
+
+    <!-- Password script -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const correctPassword = "0404";
+            let userInput = "";
+            const display = document.querySelector(".display-cell");
+            const buttons = document.querySelectorAll(".button-grid button");
+
+            buttons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const value = button.textContent.trim();
+
+                    if (value === "✔") {
+                        if (userInput === correctPassword) {
+                            display.textContent = "Correct";
+                            display.style.color = "rgb(143, 156, 195)";
+                            display.style.backgroundColor = "rgb(66, 79, 119)";
+                            setTimeout(() => {
+                                window.location.href = "Home.html"; // redirect to next page
+                            }, 2000);
+                        } else {
+                            display.textContent = "Incorrect";
+                            display.style.color = "rgb(143, 156, 195)";
+                            display.style.backgroundColor = "rgb(66, 79, 119)";
+                            setTimeout(() => {
+                                userInput = "";
+                                display.textContent = "";
+                            }, 2000);
+                        }
+                    } else if (value === "✖") {
+                        userInput = "";
+                        display.textContent = "";
+                    } else {
+                        if (userInput.length < 4) {
+                            userInput += value;
+                            display.textContent = userInput;
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 
     <!-- Hearts script -->
     <script>
@@ -87,52 +121,10 @@
             setInterval(createHeart, 500);
         });
     </script>
-
-    <!-- Password script -->
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            const correctPassword = "0404";
-            let userInput = "";
-            const display = document.querySelector(".display-cell");
-            const buttons = document.querySelectorAll(".button-grid button");
-
-            buttons.forEach(button => {
-                button.addEventListener("click", () => {
-                    const value = button.textContent.trim();
-
-                    if (value === "✔") {
-                        if (userInput === correctPassword) {
-                            display.textContent = "Correct";
-                            display.style.color = "rgb(143, 156, 195)";
-                            display.style.backgroundColor = "rgb(66, 79, 119)";
-                            setTimeout(() => {
-                                window.location.href = "Home.html";
-                            }, 2000);
-                        } else {
-                            display.textContent = "Incorrect";
-                            display.style.color = "rgb(143, 156, 195)";
-                            display.style.backgroundColor = "rgb(66, 79, 119)";
-                            setTimeout(() => {
-                                userInput = "";
-                                display.textContent = "";
-                            }, 2000);
-                        }
-                    } else if (value === "✖") {
-                        userInput = "";
-                        display.textContent = "";
-                    } else {
-                        if (userInput.length < 4) {
-                            userInput += value;
-                            display.textContent = userInput;
-                        }
-                    }
-                });
-            });
-        });
-    </script>
 </body>
-
 </html>
+
+
 
 
 
