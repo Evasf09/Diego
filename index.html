@@ -3,29 +3,30 @@
 <head>
     <meta charset="utf-8" />
     <title>Diego ♥</title>
-    <link href="Style Sheet.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <!-- Hearts background -->
+
+    <!-- Hearts Background -->
     <div class="hearts-container"></div>
 
-    <!-- Header box -->
-    <div class="box box-header">
+    <!-- Header Box -->
+    <div class="box header-box">
         <h1>Passcode</h1>
     </div>
 
-    <!-- Main box with image + keypad -->
-    <div class="box box-main">
-        <!-- Left image -->
-        <div class="left-img">
+    <!-- Main Box -->
+    <div class="box main-box">
+
+        <!-- Left Image -->
+        <div class="left-image">
             <img src="Flower.png" alt="Left pic">
         </div>
 
-        <!-- Right keypad -->
+        <!-- Right Keypad -->
         <div class="keypad-wrapper">
             <div class="button-grid">
                 <div class="display-cell">Enter password</div>
@@ -43,9 +44,42 @@
                 <button style="font-weight:bold;">✔</button>
             </div>
         </div>
+
     </div>
 
-    <!-- Password script -->
+    <!-- Hearts Script -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const heartsContainer = document.querySelector('.hearts-container');
+
+            function randomShade() {
+                const base = [66, 79, 119];
+                const scale = 0.6 + Math.random() * 0.6;
+                const r = Math.min(255, Math.max(0, Math.floor(base[0] * scale)));
+                const g = Math.min(255, Math.max(0, Math.floor(base[1] * scale)));
+                const b = Math.min(255, Math.max(0, Math.floor(base[2] * scale)));
+                return `rgb(${r},${g},${b})`;
+            }
+
+            function createHeart() {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.textContent = '❤';
+                const padding = 5; // % padding
+                heart.style.left = padding + Math.random() * (100 - 2 * padding) + 'vw';
+                heart.style.top = Math.random() * 100 + 'vh';
+                heart.style.fontSize = 5 + Math.random() * 5 + 'vw';
+                heart.style.color = randomShade();
+                heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+                heartsContainer.appendChild(heart);
+                setTimeout(() => heart.remove(), 10000);
+            }
+
+            setInterval(createHeart, 500);
+        });
+    </script>
+
+    <!-- Password Script -->
     <script>
         window.addEventListener('DOMContentLoaded', () => {
             const correctPassword = "0404";
@@ -63,7 +97,7 @@
                             display.style.color = "rgb(143, 156, 195)";
                             display.style.backgroundColor = "rgb(66, 79, 119)";
                             setTimeout(() => {
-                                window.location.href = "Home.html"; // redirect to next page
+                                window.location.href = "Home.html";
                             }, 2000);
                         } else {
                             display.textContent = "Incorrect";
@@ -88,39 +122,10 @@
         });
     </script>
 
-    <!-- Hearts script -->
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            const heartsContainer = document.querySelector('.hearts-container');
-
-            function randomShade() {
-                const base = [66, 79, 119];
-                const scale = 0.6 + Math.random() * 0.6;
-                const r = Math.min(255, Math.max(0, Math.floor(base[0] * scale)));
-                const g = Math.min(255, Math.max(0, Math.floor(base[1] * scale)));
-                const b = Math.min(255, Math.max(0, Math.floor(base[2] * scale)));
-                return `rgb(${r},${g},${b})`;
-            }
-
-            function createHeart() {
-                const heart = document.createElement('div');
-                heart.classList.add('heart');
-                heart.textContent = '❤';
-                const padding = 50;
-                heart.style.left = padding + Math.random() * (window.innerWidth - 2 * padding) + 'px';
-                heart.style.top = Math.random() * window.innerHeight + 'px';
-                heart.style.fontSize = 40 + Math.random() * 40 + 'px';
-                heart.style.color = randomShade();
-                heart.style.animationDuration = (5 + Math.random() * 5) + 's';
-                heartsContainer.appendChild(heart);
-                setTimeout(() => heart.remove(), 10000);
-            }
-
-            setInterval(createHeart, 500);
-        });
-    </script>
 </body>
 </html>
+
+
 
 
 
