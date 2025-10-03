@@ -1,47 +1,55 @@
+/* -------------------- General -------------------- */
 body {
-    background-color: rgb(191, 201, 229); /* Light blue */
+    background-color: rgb(191, 201, 229);
     letter-spacing: 3px;
+    margin: 0;
+    padding: 0;
 }
 
+/* Boxes */
 .box {
-    background-color: rgb(143, 156, 195); /* blue */
+    background-color: rgb(143, 156, 195);
     color: rgb(66, 79, 119);
-    border: 10px solid rgb(66, 79, 119); /* Dark blue */
+    border: 10px solid rgb(66, 79, 119);
     border-radius: 50px;
-    width: 50%;
-    margin-left: 50%;
-    margin-top: 5vh;
-    transform: translateX(-50%);
+    margin: 5vh auto;
     display: flex;
-    justify-content: center; /* centers horizontally */
-    align-items: center; /* centers vertically */
-}
-
-.innerbox {
-    background-color: rgb(66, 79, 119); /* Dark blue */
-    color: rgb(143, 156, 195);
-    border: 10px solid rgb(0, 0, 0); /* black */
-    width: 50%;
-    border-radius: 50px;
-    margin-left: 50%;
-    margin-top: 3vh;
-    transform: translateX(-50%);
-    display: flex; /* enables Flexbox */
-    justify-content: center; /* centers horizontally */
+    justify-content: center;
     align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
-h1 {
-    font-size: 80px;
-    font-family: "Cherry Bomb One", system-ui;
-    text-align: center;
+/* Header box */
+.box-header {
+    width: 50%;
+    height: 150px;
 }
 
+/* Main box */
+.box-main {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    padding: 60px;
+    box-sizing: border-box;
+    height: 600px;
+}
+
+/* Image */
+.left-img img {
+    width: 400px;
+    height: 500px;
+    border: 10px solid rgb(66, 79, 119);
+    border-radius: 50px;
+}
+
+/* Keypad */
 .keypad-wrapper {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    padding-bottom: 115px; /* moves the grid up from the bottom */
+    padding-bottom: 115px;
     padding-right: 10px;
 }
 
@@ -85,21 +93,16 @@ h1 {
     color: rgb(143, 156, 195);
 }
 
-img {
-    border: 10px solid rgb(66, 79, 119);
-    border-radius: 50px;
-}
-
-/* Hearts */
+/* Hearts background */
 .hearts-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    pointer-events: none; /* clicks pass through */
+    pointer-events: none;
     overflow: hidden;
-    z-index: 0; /* behind everything */
+    z-index: 0;
 }
 
 .heart {
@@ -108,44 +111,28 @@ img {
 }
 
 @keyframes floatUp {
-    0% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-120vh);
-        opacity: 0;
-    }
-}
-
-/* Ensure boxes are above hearts */
-.box, .innerbox {
-    position: relative;
-    z-index: 1;
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-120vh); opacity: 0; }
 }
 
 /* -------------------- Responsive for phones -------------------- */
 @media (max-width: 600px) {
-    .box {
+    .box-header, .box-main {
         width: 90%;
-        margin-left: 50%;
-        transform: translateX(-50%);
         flex-direction: column;
-        padding: 10px;
+        padding: 20px;
     }
 
-    h1 {
-        font-size: 40px;
-    }
+    h1 { font-size: 40px; }
 
-    .box[style*="justify-content: space-between"] {
+    .box-main {
         flex-direction: column !important;
         align-items: center !important;
-        padding: 20px !important;
         height: auto !important;
+        padding: 20px !important;
     }
 
-    .left-image img {
+    .left-img img {
         width: 70% !important;
         height: auto !important;
         margin-bottom: 20px !important;
@@ -168,6 +155,8 @@ img {
         font-size: 5vw !important;
     }
 }
+
+
 
 
 
